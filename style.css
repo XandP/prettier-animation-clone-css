@@ -17,19 +17,58 @@ body {
 }
 
 .container {
-    width: 600px;
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--unit);
 }
 
+.container::before {
+    content: "";
+    width: 50%;
+    position: absolute;
+    height: 100%;
+    background: fuchsia;
+    opacity: .5;
+}
+
 .row {
     height: var(--unit);
     display: flex;
+    justify-content: center;
     gap: var(--unit);
 }
 
-.cell {
-    width: var(--unit);
-    height: var(--unit);
+.row:hover {
+    border: 1px solid fuchsia;
 }
+
+.cell {
+    height: 100%;
+    width: calc(var(--size, 2) * var(--unit));
+    background: var(--gray);
+    border-radius: 100vh;
+}
+
+.cell.size-2 { --size: 2; }
+.cell.size-3 { --size: 3; }
+.cell.size-4 { --size: 4; }
+.cell.size-5 { --size: 5; }
+.cell.size-5_5 { --size: 5.5; }
+.cell.size-6 { --size: 6; }
+.cell.size-7 { --size: 7; }
+.cell.size-8 { --size: 8; }
+.cell.size-10 { --size: 10; }
+.cell.size-11 { --size: 11; }
+.cell.size-12 { --size: 12; }
+.cell.size-13 { --size: 13; }
+.cell.size-14 { --size: 14; }
+.cell.size-16 { --size: 16; }
+.cell.size-18 { --size: 18; }
+.cell.size-20 { --size: 20; }
+
+.cell.red { background: var(--red); }
+.cell.yellow { background: var(--yellow); }
+.cell.green { background: var(--green); }
+.cell.purple { background: var(--purple); }
